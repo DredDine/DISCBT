@@ -1,10 +1,11 @@
 const {
-    Client,
-    IntentsBitField,
-    ActionRowBuilder,
-    ButtonBuilder,
-    ButtonStyle,
-  } = require('discord.js');
+  Client,
+  IntentsBitField,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  MessageEmbed
+} = require('discord.js');
   
   const client = new Client({
     intents: [
@@ -33,10 +34,14 @@ const {
         const row = new ActionRowBuilder().addComponents(button);
   
         try {
-          await channel.send({
-            content: 'اظغط على الزر ادناه للحصول على <@&1095366755368583228>',
-            components: [row],
-          });
+          const embed = new MessageEmbed()
+            .setTitle('SELF ROLES')
+            .setDescription('اظغط على الزر ادناه للحصول على <@&1095366755368583228>');
+  
+            await channel.send({
+              embeds: [embed],
+              components: [row],
+            });
 
           console.log('msg sent!');
 
@@ -57,7 +62,7 @@ const {
       if (role) {
         try {
           await interaction.member.roles.add(role);
-          await interaction.reply('✅ تمت إضافة <@&1095366755368583228> بنجاح!');
+          await interaction.reply({content: '✅ تمت إضافة <@&1095366755368583228> بنجاح!', ephemeral: true });
         } catch (error) {
           console.error('Error adding the role:', error);
         }
