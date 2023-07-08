@@ -18,7 +18,7 @@ const {
 
 
 // configs
-const TOKEN = "MTEyNjY5MTc5ODQ1MDk3MDcyNA.GRmL0W.WuWVe4cI2URX8AC_py_OFAs48m-IFbxzjdPyGY";
+const TOKEN = "MTEyNjY5MTc5ODQ1MDk3MDcyNA.GnOV3r.oidQMHc_JLlvt_lDsBgyeMeejoWvOfrj5iY8KQ";
 const ROLE = '1095366755368583228';
 const CHANNEL = '1127013319795015680';
 
@@ -35,10 +35,26 @@ const CHANNEL = '1127013319795015680';
       if (channel) {
         const button = new ButtonBuilder()
           .setCustomId('roleee')
-          .setLabel('Claim me')
+          .setLabel('STAFF')
+          .setStyle(ButtonStyle.Primary);
+        const button1 = new ButtonBuilder()
+          .setCustomId('roleee2')
+          .setLabel('MOD')
+          .setStyle(ButtonStyle.Danger);
+        const button2 = new ButtonBuilder()
+          .setCustomId('roleee3')
+          .setLabel('dad')
+          .setStyle(ButtonStyle.Secondary);
+        const button3 = new ButtonBuilder()
+          .setCustomId('roleee4')
+          .setLabel('fsg')
+          .setStyle(ButtonStyle.Danger);
+        const button4 = new ButtonBuilder()
+          .setCustomId('roleee5')
+          .setLabel('dhd')
           .setStyle(ButtonStyle.Danger);
   
-        const row = new ActionRowBuilder().addComponents(button);
+        const row = new ActionRowBuilder().addComponents(button, button1, button2, button3, button4);
   
         try {
           const embed = new EmbedBuilder()
@@ -64,15 +80,16 @@ const CHANNEL = '1127013319795015680';
   client.on('interactionCreate', async (interaction) => {
     if (!interaction.isButton()) return;
     if (interaction.customId === 'roleee') {
-      const role = interaction.guild.roles.cache.get(ROLE); // Replace with your role ID
+      const role = interaction.guild.roles.cache.get(ROLE);
   
       if (role) {
-        try {
-          await interaction.member.roles.add(role);
-          await interaction.reply({content: `✅ تمت إضافة <@&${ROLE}> بنجاح!`, ephemeral: true });
-        } catch (error) {
-          console.error('Error adding the role:', error);
-        }
+        if (interaction.member.roles.cache.has(ROLE)) { // check if the memeber have this role or not
+        await interaction.member.roles.remove(ROLE); // remove it
+        await interaction.reply({content: `✅ تمت ازالة <@&${ROLE}> بنجاح!`, ephemeral: true });
+      } else {
+        await interaction.member.roles.add(ROLE);
+        await interaction.reply({content: `✅ تمت إضافة <@&${ROLE}> بنجاح!`, ephemeral: true });
+      }
       } else {
         console.error('Invalid role ID.');
       }
