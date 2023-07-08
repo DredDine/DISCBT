@@ -28,7 +28,7 @@ const {
       if (channel) {
         const button = new ButtonBuilder()
           .setCustomId('roleee')
-          .setLabel('claim me')
+          .setLabel('Claim me')
           .setStyle(ButtonStyle.Danger);
   
         const row = new ActionRowBuilder().addComponents(button);
