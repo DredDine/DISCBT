@@ -4,7 +4,7 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  MessageEmbed
+  EmbedBuilder
 } = require('discord.js');
   
   const client = new Client({
@@ -34,7 +34,7 @@ const {
         const row = new ActionRowBuilder().addComponents(button);
   
         try {
-          const embed = new MessageEmbed()
+          const embed = new EmbedBuilder()
             .setTitle('SELF ROLES')
             .setDescription('اظغط على الزر ادناه للحصول على <@&1095366755368583228>');
   
