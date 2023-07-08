@@ -18,7 +18,7 @@ const {
 
 
 // configs
-const TOKEN = "MTEyNjY5MTc5ODQ1MDk3MDcyNA.GnOV3r.oidQMHc_JLlvt_lDsBgyeMeejoWvOfrj5iY8KQ";
+const TOKEN = "MTEyNjY5MTc5ODQ1MDk3MDcyNA.GelI_u.JKBzl3vuJ1q9Ympg0wqxhyqn41bPHRiQbLwQfE";
 const ROLE = '1095366755368583228';
 const CHANNEL = '1127013319795015680';
 
